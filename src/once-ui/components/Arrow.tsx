@@ -11,6 +11,7 @@ interface ArrowProps {
     color?: 'onBackground' | 'onSolid';
     style?: React.CSSProperties;
     className?: string;
+    direction?: 'right' | 'up' | 'down' | 'left';
 }
 
 const Arrow: React.FC<ArrowProps> = ({
@@ -18,7 +19,8 @@ const Arrow: React.FC<ArrowProps> = ({
     scale = 0.8,
     color = 'onBackground',
     style,
-    className
+    className,
+    direction = "right"
 }) => {
     const arrowContainerRef = useRef<HTMLDivElement>(null);
 
@@ -44,13 +46,20 @@ const Arrow: React.FC<ArrowProps> = ({
         }
     }, [trigger]);
 
+    const rotation = {
+        right: 'rotate(0deg)',
+        up: 'rotate(-90deg)',
+        down: 'rotate(90deg)',
+        left: 'rotate(180deg)'
+    }[direction];
+
     return (
         <Flex>
             <Flex ref={arrowContainerRef}
                 position="relative" marginLeft="4"
                 alignItems="center" justifyContent="flex-end"
                 className={classNames(styles.arrowContainer, className)}
-                style={{transform: `scale(${scale})`, ...style}}>
+                style={{transform: `scale(${scale}) ${rotation}`, ...style}}>
                 <Flex className={classNames(styles.arrow, styles[color])} height={0.1}/>
                 <Flex className={classNames(styles.arrowHead, styles[color])} height={0.0875}/>
                 <Flex className={classNames(styles.arrowHead, styles[color])} height={0.0875}/>

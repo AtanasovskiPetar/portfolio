@@ -9,6 +9,8 @@ import { baseURL, effects, style } from '@/app/resources'
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
 
+import { Button, Arrow } from '@/once-ui/components';
+
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
@@ -100,6 +102,7 @@ export default async function RootLayout({
 				data-border={style.border}
 				data-surface={style.surface}
 				data-transition={style.transition}
+				id="home"
 				className={classNames(
 					primary.variable,
 					secondary ? secondary.variable : '',
@@ -132,6 +135,22 @@ export default async function RootLayout({
 						</Flex>
 					</Flex>
 					<Footer/>
+					<Button
+						id="about"
+						data-border="rounded"
+						href={`#home`}
+						variant="tertiary"
+						size="m"
+						style={{
+							position: 'fixed',
+							bottom: '20px',
+							right: '20px'
+						}}>
+						<Flex
+							alignItems="center">
+							<Arrow trigger="#home" direction="up"/>
+						</Flex>
+					</Button>
 				</Flex>
 			</Flex>
 		</NextIntlClientProvider>

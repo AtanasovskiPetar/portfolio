@@ -12,11 +12,11 @@
         "title": "{name}'s Portfolio",
         "description": "Portfolio website showcasing my work as a {role}",
         "headline": "Design engineer and builder",
-        "subline": "I'm Selene, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects."
+        "subline": "I'm Petar, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects."
     },
     "about": {
         "label": "About",
-        "title": "About me",
+        "title": "Contact",
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",

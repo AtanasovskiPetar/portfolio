@@ -56,6 +56,7 @@ export const Header = () => {
     const [isPending, startTransition] = useTransition();
     const pathname = usePathname() ?? '';
     const params = useParams();
+    const [visibleSections, setVisibleSections] = useState<string[]>([]);
 
     function handleLanguageChange(locale: string) {
         const nextLocale = locale as Locale;
@@ -69,6 +70,39 @@ export const Header = () => {
 
     const t = useTranslations();
     const { person, home, about, blog, work, gallery } = renderContent(t);
+
+    useEffect(() => {
+        const sections = ['home-id', 'stack', 'contact']; // Add your section IDs here
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setVisibleSections((prev) => Array.from(new Set([...prev, entry.target.id])));
+                    } else {
+                        setVisibleSections((prev) => prev.filter((id) => id !== entry.target.id));
+                    }
+                });
+            },
+            { threshold: 0.5 } // Adjust threshold as needed
+        );
+
+        sections.forEach((id) => {
+            const section = document.getElementById(id);
+            if (section) {
+                observer.observe(section);
+            }
+        });
+
+        return () => {
+            sections.forEach((id) => {
+                const section = document.getElementById(id);
+                if (section) {
+                    observer.unobserve(section);
+                }
+            });
+            observer.disconnect();
+        };
+    }, []);
 
     return (
         <>
@@ -87,11 +121,6 @@ export const Header = () => {
                     paddingLeft="12" fillWidth
                     alignItems="center"
                     textVariant="body-default-s">
-                    { display.location && (
-                        <Flex hide="s">
-                            {person.location}
-                        </Flex>
-                    )}
                 </Flex>
                 <Flex fillWidth justifyContent="center">
                     <Flex
@@ -101,20 +130,20 @@ export const Header = () => {
                         <Flex
                             gap="4"
                             textVariant="body-default-s">
-                            { routes['/'] && (
+                            {(
                                 <ToggleButton
                                     prefixIcon="home"
-                                    href={`/${params?.locale}`}
-                                    selected={pathname === "/"}>
+                                    href={`#home`}
+                                    selected={visibleSections.includes('home') || visibleSections.length == 0}>
                                     <Flex paddingX="2" hide="s">{home.label}</Flex>
                                 </ToggleButton>
                             )}
-                            { routes['/about'] && (
+                            {(
                                 <ToggleButton
                                     prefixIcon="person"
-                                    href={`/${params?.locale}/about`}
-                                    selected={pathname === "/about"}>
-                                    <Flex paddingX="2" hide="s">{about.label}</Flex>
+                                    href={`#stack`}
+                                    selected={visibleSections.includes('stack')}>
+                                    <Flex paddingX="2" hide="s">{'Stack'}</Flex>
                                 </ToggleButton>
                             )}
                             { routes['/work'] && (
@@ -133,12 +162,12 @@ export const Header = () => {
                                     <Flex paddingX="2" hide="s">{blog.label}</Flex>
                                 </ToggleButton>
                             )}
-                            { routes['/gallery'] && (
+                            { (
                                 <ToggleButton
-                                    prefixIcon="gallery"
-                                    href={`/${params?.locale}/gallery`}
-                                    selected={pathname.startsWith('/gallery')}>
-                                    <Flex paddingX="2" hide="s">{gallery.label}</Flex>
+                                    prefixIcon="contact"
+                                    href={`#contact`}
+                                    selected={visibleSections.includes('contact')}>
+                                    <Flex paddingX="2" hide="s">{'Contact'}</Flex>
                                 </ToggleButton>
                             )}
                         </Flex>

@@ -62,4 +62,5 @@ export const iconLibrary: Record<string, IconType> = {
 	github: FaGithub,
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
+	contact: HiEnvelope
 };
