@@ -7,7 +7,6 @@ import { Footer, Header, RouteGuard } from "@/components";
 import { baseURL, effects, style } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
-import { Source_Code_Pro } from 'next/font/google';
 
 import { Button, Arrow } from '@/once-ui/components';
 

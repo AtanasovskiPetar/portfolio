@@ -147,11 +147,32 @@ const createI18nContent = (t) => {
 
     const experiences = [
         {
+            title: 'Software Engineer',
+            company: 'CodeChem',
+            timeframe: 'Dec 2024 - Present',
+            description: 'Software engineer at CodeChem, a company that builds tools for developers. I work on the front-end and back-end of our products.',
+            position: 'left'
+        },
+        {
             title: 'Junior FullStack Developer',
             company: 'Semos Cloud',
             timeframe: 'Feb 2024 - Dec 2024',
-            description: 'Developed a cloud-based recognition software called JobPts.',
+            description: 'Internship and first developer job, where I contributed to the development of JobPts, a SaaS cloud-based recognition software.',
+            position: 'right'
+        },
+        {
+            title: 'Data Curator',
+            company: 'Veeva Systems',
+            timeframe: 'Jul 2022 - Jul 2024',
+            description: 'Freelancer in a Public Benefit corporation called Veeva. It was a side job that I did while I took my studies as my primary occupation.',
             position: 'left'
+        },
+        {
+            title: 'Web Designer',
+            company: 'Freelance',
+            timeframe: 'Jan 2021 - Jun 2023',
+            description: 'freelanced as a web developer, crafting online stores for small businesses using WordPress and Shopify.',
+            position: 'right'
         }
     ]
 

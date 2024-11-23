@@ -166,7 +166,7 @@ export const Header = () => {
                             {(
                                 <ToggleButton
                                     prefixIcon="book"
-                                    href={`#education`}
+                                    href={`#certificates`}
                                     selected={visibleSections.includes('certificates')}>
                                     <Flex paddingX="2" hide="s">Certificates</Flex>
                                 </ToggleButton>

@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Arrow, IconButton, StackIcon, Grid } from '@/once-ui/components';
-import { Projects } from '@/components/work/Projects';
+import { Heading, Flex, Text, Avatar, RevealFx, IconButton, StackIcon, Grid } from '@/once-ui/components';
 
-import { baseURL, routes, renderContent } from '@/app/resources';
-import { Mailchimp } from '@/components';
-import { Posts } from '@/components/blog/Posts';
+import { baseURL, renderContent } from '@/app/resources';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import Experience from '@/components/Experience';
@@ -51,7 +48,7 @@ export default function Home(
 ) {
 	unstable_setRequestLocale(locale);
 	const t = useTranslations();
-	const { home, about, person, newsletter, social, stack, experiences, certifications } = renderContent(t);
+	const { home, person, social, stack, experiences, certifications } = renderContent(t);
 	return (
 		<Flex
 			maxWidth="m" fillWidth gap="xl"
@@ -122,7 +119,6 @@ export default function Home(
 													key={item.name}
 													href={item.link}
 													icon={item.icon}
-													// tooltip={item.name}
 													size="s"
 													variant="ghost" />
 											)
@@ -137,7 +133,6 @@ export default function Home(
 							<Avatar
 								src={person.avatar}
 								size="xl"
-							// alt={person.name}
 							/>
 						</RevealFx>
 					</Flex>
