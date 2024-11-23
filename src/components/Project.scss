@@ -1,0 +1,36 @@
+.project-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Adjust as needed */
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.project-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(0);
+    transition: filter 0.3s;
+}
+
+.project-container:hover::before {
+    filter: blur(5px); /* Adjust the blur amount as needed */
+}
+
+.project-title {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-container:hover .project-title {
+    opacity: 1;
+}

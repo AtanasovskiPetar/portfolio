@@ -18,6 +18,7 @@ interface CommonProps {
     href?: string;
     className?: string;
     style?: React.CSSProperties;
+    backgroundUrl?: string;
 }
 
 export type ButtonProps = CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -37,6 +38,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
     href,
     className,
     style,
+    backgroundUrl,
     ...props
 }, ref) => {
     const labelSize = size === 'l' ? 'font-l' : size === 'm' ? 'font-m' : 'font-s';
@@ -53,7 +55,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
 
     const commonProps = {
         className: `${styles.button} ${styles[variant]} ${styles[size]} ${fillWidth ? styles.fillWidth : styles.fitContent} ${className || ''}`,
-        style: { ...style, textDecoration: 'none' },
+        style: { ...style, textDecoration: 'none', 
+            backgroundImage: `url(${backgroundUrl || ''})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'},
     };
 
     if (href) {

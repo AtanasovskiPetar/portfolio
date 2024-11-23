@@ -70,7 +70,7 @@ const tertiary: FontConfig | undefined = undefined;
 /*
 */
 
-const code = Source_Code_Pro({
+const code = 	({
 	variable: '--font-code',
 	subsets: ['latin'],
 	display: 'swap',
@@ -144,10 +144,14 @@ export default async function RootLayout({
 						style={{
 							position: 'fixed',
 							bottom: '20px',
-							right: '20px'
+							right: '20px',
+							zIndex: 999,
 						}}>
 						<Flex
-							alignItems="center">
+							alignItems="center"
+							style={{
+								paddingRight: '2px',
+							}}>
 							<Arrow trigger="#home" direction="up"/>
 						</Flex>
 					</Button>

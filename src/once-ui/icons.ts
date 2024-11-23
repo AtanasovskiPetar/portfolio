@@ -29,11 +29,18 @@ import {
 } from "react-icons/pi";
 
 import {
+	FaAngular,
+	FaComputer,
 	FaDiscord,
 	FaGithub,
 	FaLinkedin,
+	FaNode,
+	FaNodeJs,
+	FaReact,
+	FaSchool,
 	FaXTwitter
 } from "react-icons/fa6";
+import { projects } from '@/app/resources/content';
 
 export const iconLibrary: Record<string, IconType> = {
 	chevronUp: HiChevronUp,
@@ -62,5 +69,10 @@ export const iconLibrary: Record<string, IconType> = {
 	github: FaGithub,
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
-	contact: HiEnvelope
+	contact: HiEnvelope,
+	angular: FaAngular,
+	react: FaReact,
+	nodejs: FaNodeJs,
+	project: FaComputer,
+	school: FaSchool,
 };

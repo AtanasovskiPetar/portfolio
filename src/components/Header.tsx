@@ -72,36 +72,45 @@ export const Header = () => {
     const { person, home, about, blog, work, gallery } = renderContent(t);
 
     useEffect(() => {
-        const sections = ['home-id', 'stack', 'contact']; // Add your section IDs here
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setVisibleSections((prev) => Array.from(new Set([...prev, entry.target.id])));
-                    } else {
-                        setVisibleSections((prev) => prev.filter((id) => id !== entry.target.id));
-                    }
-                });
-            },
-            { threshold: 0.5 } // Adjust threshold as needed
-        );
-
-        sections.forEach((id) => {
-            const section = document.getElementById(id);
-            if (section) {
-                observer.observe(section);
-            }
-        });
-
-        return () => {
+        const timeoutId = setTimeout(() => {
+            const sections = ['home-id', 'stack', 'experience', 'certificates', 'projects', 'education'];
+            const visibleSet = new Set();
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setVisibleSections((prev) => Array.from(new Set([...prev, entry.target.id])));
+                            visibleSet.add(entry.target.id);
+                        } else {
+                            setVisibleSections((prev) => prev.filter((id) => id !== entry.target.id));
+                            visibleSet.delete(entry.target.id);
+                        }
+                    });
+                    const firstVisible = sections.find((id) => visibleSet.has(id)) || 'home-id';
+                    setVisibleSections([firstVisible]);
+                },
+                { threshold: 0.7 }
+            );
+    
             sections.forEach((id) => {
                 const section = document.getElementById(id);
                 if (section) {
-                    observer.unobserve(section);
+                    observer.observe(section);
                 }
             });
-            observer.disconnect();
-        };
+    
+            return () => {
+                sections.forEach((id) => {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        observer.unobserve(section);
+                    }
+                });
+                observer.disconnect();
+            };
+        }, 1000);
+    
+        return () => clearTimeout(timeoutId);
     }, []);
 
     return (
@@ -134,7 +143,7 @@ export const Header = () => {
                                 <ToggleButton
                                     prefixIcon="home"
                                     href={`#home`}
-                                    selected={visibleSections.includes('home') || visibleSections.length == 0}>
+                                    selected={visibleSections.includes('home-id') || visibleSections.length == 0}>
                                     <Flex paddingX="2" hide="s">{home.label}</Flex>
                                 </ToggleButton>
                             )}
@@ -146,28 +155,36 @@ export const Header = () => {
                                     <Flex paddingX="2" hide="s">{'Stack'}</Flex>
                                 </ToggleButton>
                             )}
-                            { routes['/work'] && (
+                            {(
                                 <ToggleButton
                                     prefixIcon="grid"
-                                    href={`/${params?.locale}/work`}
-                                    selected={pathname.startsWith('/work')}>
-                                    <Flex paddingX="2" hide="s">{work.label}</Flex>
+                                    href={`#experience`}
+                                    selected={visibleSections.includes('experience')}>
+                                    <Flex paddingX="2" hide="s">Experience</Flex>
                                 </ToggleButton>
                             )}
-                            { routes['/blog'] && (
+                            {(
                                 <ToggleButton
                                     prefixIcon="book"
-                                    href={`/${params?.locale}/blog`}
-                                    selected={pathname.startsWith('/blog')}>
-                                    <Flex paddingX="2" hide="s">{blog.label}</Flex>
+                                    href={`#education`}
+                                    selected={visibleSections.includes('certificates')}>
+                                    <Flex paddingX="2" hide="s">Certificates</Flex>
                                 </ToggleButton>
                             )}
-                            { (
+                            {(
                                 <ToggleButton
-                                    prefixIcon="contact"
-                                    href={`#contact`}
-                                    selected={visibleSections.includes('contact')}>
-                                    <Flex paddingX="2" hide="s">{'Contact'}</Flex>
+                                    prefixIcon="school"
+                                    href={`#education`}
+                                    selected={visibleSections.includes('education')}>
+                                    <Flex paddingX="2" hide="s">Education</Flex>
+                                </ToggleButton>
+                            )}
+                            {(
+                                <ToggleButton
+                                    prefixIcon="project"
+                                    href={`#projects`}
+                                    selected={visibleSections.includes('projects')}>
+                                    <Flex paddingX="2" hide="s">Projects</Flex>
                                 </ToggleButton>
                             )}
                         </Flex>
@@ -179,23 +196,6 @@ export const Header = () => {
                         justifyContent="flex-end" alignItems="center"
                         textVariant="body-default-s"
                         gap="20">
-                        {routing.locales.length > 1 &&
-                            <Flex
-                                background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                padding="4" gap="2"
-                                justifyContent="center">
-                                {i18n && routing.locales.map((locale, index) => (
-                                    <ToggleButton
-                                        key={index}
-                                        selected={params?.locale === locale}
-                                        onClick={() => handleLanguageChange(locale)}
-                                        className={isPending && 'pointer-events-none opacity-60' || ''}
-                                        >
-                                        {locale.toUpperCase()}
-                                    </ToggleButton>
-                                ))}
-                            </Flex>
-                        }
                         <Flex hide="s">
                             { display.time && (
                                 <TimeDisplay timeZone={person.location}/>

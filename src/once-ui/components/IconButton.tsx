@@ -57,7 +57,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
             {children ? (
                 children
             ) : (
-                <Icon name={icon} size="s" />
+                <Icon name={icon} size={size} />
             )}
             {tooltip && isTooltipVisible && (
                 <div style={{ position: "absolute" }} className={iconStyles[tooltipPosition]}>
