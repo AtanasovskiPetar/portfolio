@@ -48,7 +48,7 @@ export default function Home(
 ) {
 	unstable_setRequestLocale(locale);
 	const t = useTranslations();
-	const { home, person, social, stack, experiences, certifications } = renderContent(t);
+	const { home, person, social, stack, experiences, certifications, achievements } = renderContent(t);
 	return (
 		<Flex
 			maxWidth="m" fillWidth gap="xl"
@@ -184,62 +184,104 @@ export default function Home(
 					</RevealFx>
 				))}
 			</div>
-			<div id="certificates" style={{ width: '100%' }}>
-				<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
-					<Heading
-						as="h2"
-						variant="display-strong-xs"
-						wrap="balance">
-						Certificates
-					</Heading>
-				</RevealFx>
-				<RevealFx translateY="16" delay={0.6}>
-					<Grid
-						columns="repeat(3, 1fr)"
-						mobileColumns='1col'
-						style={{ padding: '16px' }}
-					>
-						{certifications.map((item) => (
-							<div
-								key={item.title}
-								style={{
-									border: '1px solid #fff',
-									borderRadius: '8px',
-									margin: '10px',
-									padding: '16px',
-								}}
-							>
-								<h3>{item.institution}</h3>
-								<h4>{item.title}</h4>
-								<h5>{item.timeframe}</h5>
-							</div>
-						))}
-					</Grid>
-				</RevealFx>
-			</div>
-			<div id="education" style={{ width: '100%' }}>
-				<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
-					<Heading
-						as="h2"
-						variant="display-strong-xs"
-						wrap="balance">
-						Education
-					</Heading>
-				</RevealFx>
-				{education.map((item) => (
-					<RevealFx translateY="16" delay={0.6}>
-						<Education
-							key={item.institution}
-							institution={item.institution}
-							degree={item.degree}
-							direction={item.direction}
-							gpa={item.gpa}
-							timeframe={item.timeframe}
-							position={item.position}
-						></Education>
+			<Flex id="education" 
+				maxWidth="m" fillWidth gap="xl"
+				direction="column" alignItems="center">
+				<div style={{ width: '100%' }}>
+					<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
+						<Heading
+							as="h2"
+							variant="display-strong-xs"
+							wrap="balance">
+							Certificates
+						</Heading>
 					</RevealFx>
-				))}
-			</div>
+					<RevealFx translateY="16" delay={0.6}>
+						<Grid
+							columns="repeat(3, 1fr)"
+							mobileColumns='1col'
+							style={{ padding: '16px' }}
+						>
+							{certifications.map((item) => (
+								<div
+									key={item.title}
+									style={{
+										border: '1px solid #fff',
+										borderRadius: '8px',
+										margin: '10px',
+										padding: '16px',
+									}}
+								>
+									<h3>{item.institution}</h3>
+									<h4>{item.title}</h4>
+									<h5>{item.timeframe}</h5>
+								</div>
+							))}
+						</Grid>
+					</RevealFx>
+				</div>
+				<div style={{ width: '100%' }}>
+					<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
+						<Heading
+							as="h2"
+							variant="display-strong-xs"
+							wrap="balance">
+							Education
+						</Heading>
+					</RevealFx>
+					{education.map((item) => (
+						<RevealFx translateY="16" delay={0.6}>
+							<Education
+								key={item.institution}
+								institution={item.institution}
+								degree={item.degree}
+								direction={item.direction}
+								gpa={item.gpa}
+								timeframe={item.timeframe}
+								position={item.position}
+							></Education>
+						</RevealFx>
+					))}
+				</div>
+				<div style={{ width: '100%' }}>
+					<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
+						<Heading
+							as="h2"
+							variant="display-strong-xs"
+							wrap="balance">
+							Achievements
+						</Heading>
+					</RevealFx>
+					<RevealFx translateY="16" delay={0.6}>
+						<Grid
+							columns="repeat(4, 1fr)"
+							mobileColumns='2col'
+							style={{ padding: '16px' }}
+						>
+							{achievements.map((item) => (
+								<div
+									key={item.title}
+									style={{
+										border: '1px solid #fff',
+										borderRadius: '8px',
+										margin: '10px',
+										padding: '16px',
+										paddingTop: '20px',
+										paddingBottom: '20px',
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'space-between',
+									}}
+								>
+									<h3>{item.place}</h3>
+									<h4>{item.title}</h4>
+									<h5>{item.timeframe}</h5>
+								</div>
+							))}
+						</Grid>
+					</RevealFx>
+				</div>
+			</Flex>
 			<div id="projects" style={{ width: '100%' }}>
 				<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
 					<Heading
@@ -262,6 +304,7 @@ export default function Home(
 									backgroundUrl={item.src}
 									title={item.title}
 									description={item.description}
+									color={item.color}
 									style={{ height: '150px', padding: '16px' }}
 								/>
 							</div>

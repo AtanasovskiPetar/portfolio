@@ -213,13 +213,93 @@ const createI18nContent = (t) => {
         },
     ]
 
+    const achievements = [
+        {
+            place: '1st',
+            title: 'Global Game Jam - Bitola',
+            timeframe: 'Feb 2023',
+        },
+        {
+            place: '2nd',
+            title: 'RoboMac',
+            timeframe: 'May 2023',
+        },
+        {
+            place: '3rd',
+            title: 'ItLabs & Best Hackathon',
+            timeframe: 'Dec 2023',
+        },
+        {
+            place: '5x',
+            title: 'National Skiiing Champion',
+            timeframe: '2010 - 2020',
+        },
+    ]
+
     const projects = [
         {
             title: 'XLSX Streaming Writer',
             description: 'Node.js package for streaming data into Excel file',
             src: '/images/projects/xlsx_streaming_writer.jpg',
             link: 'https://github.com/AtanasovskiPetar/xlsx-streaming-writer',
-        }
+            color: 'black',
+        },
+        {
+            title: 'AI Football',
+            description: 'Cloud-trained custom open ai gymnasium environment for a 3v3 python football game.',
+            src: '/images/projects/ai_football.jpg',
+            link: 'https://github.com/AtanasovskiPetar/AIFootball',
+            color: 'black',
+        },
+        {
+            title: 'Bloodline',
+            description: 'An engaging 3D strategy game developed in the Unity game engine.',
+            src: '/images/projects/bloodline.jpg',
+            link: 'https://github.com/AtanasovskiPetar/Bloodline',
+            color: 'black',
+        },
+        {
+            title: 'Distribution',
+            description: 'Online marketplace / social network for all distributors in Macedonia.',
+            src: '/images/projects/dis.jpg',
+            link: 'https://github.com/AtanasovskiPetar/dev',
+            color: 'black',
+        },
+        {
+            title: 'Real-Time Sign Language Detection',
+            description: 'Sign language recognition model using TensorFlow and deep learning.',
+            src: '/images/projects/rtsld.jpg',
+            link: 'https://github.com/AtanasovskiPetar/Real_Time_Sign_Language_Detection',
+            color: 'white',
+        },
+        {
+            title: 'React Portfolio',
+            description: 'A personal portfolio website built with React.',
+            src: '/images/projects/portfolio.jpg',
+            link: 'https://github.com/AtanasovskiPetar/portfolio',
+            color: 'white',
+        },
+        {
+            title: 'Eco Grad',
+            description: 'Web app for users to log garbage on a map, collect points for their actions and view statistics.',
+            src: '/images/projects/ecoGrad.jpg',
+            link: 'https://github.com/AtanasovskiPetar/ecoGrad',
+            color: 'black',
+        },
+        {
+            title: 'Health Expenditures Research',
+            description: 'Explores the relationship between public health expenditures, health outcomes, and economic performance.',
+            src: '/images/projects/health.jpg',
+            link: 'https://github.com/ndinevski/Health-Expenditures-Economic-And-Health-Outcomes',
+            color: 'black',
+        },
+        {
+            title: 'Bohemia Home',
+            description: 'WordPress website for a glassware store expanding into online sales.',
+            src: '/images/projects/bohemia.jpg',
+            link: 'https://bohemiahome.mk/',
+            color: 'black',
+        },
     ]
 
     const about = {
@@ -428,7 +508,8 @@ const createI18nContent = (t) => {
         experiences,
         education,
         certifications,
-        projects
+        projects,
+        achievements
     }
 };
 

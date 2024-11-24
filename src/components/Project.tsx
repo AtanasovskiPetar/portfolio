@@ -9,6 +9,7 @@ interface ProjectProps {
     href: string;
     title: string;
     description: string;
+    color?: string;
     style?: React.CSSProperties;
 }
 
@@ -17,6 +18,7 @@ const Project = forwardRef<HTMLButtonElement, ProjectProps>(({
     href,
     title,
     description,
+    color,
     style,
     ...props
 }, ref) => {
@@ -32,8 +34,8 @@ const Project = forwardRef<HTMLButtonElement, ProjectProps>(({
                     padding: '16px',
                 }}
             >
-                <h3 style={{color: 'black'}}>{title}</h3>
-                <h5 style={{color: 'black', paddingTop: '10px'}}>{description}</h5>
+                <h3 style={{color: color}}>{title}</h3>
+                <h5 style={{color: color, paddingTop: '10px'}}>{description}</h5>
             </div>
         </>
     );

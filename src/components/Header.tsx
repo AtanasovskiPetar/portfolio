@@ -73,7 +73,7 @@ export const Header = () => {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            const sections = ['home-id', 'stack', 'experience', 'certificates', 'projects', 'education'];
+            const sections = ['home-id', 'stack', 'experience', 'projects', 'education'];
             const visibleSet = new Set();
             const observer = new IntersectionObserver(
                 (entries) => {
@@ -89,7 +89,7 @@ export const Header = () => {
                     const firstVisible = sections.find((id) => visibleSet.has(id)) || 'home-id';
                     setVisibleSections([firstVisible]);
                 },
-                { threshold: 0.7 }
+                { threshold: 0.4 }
             );
     
             sections.forEach((id) => {
@@ -149,7 +149,7 @@ export const Header = () => {
                             )}
                             {(
                                 <ToggleButton
-                                    prefixIcon="person"
+                                    prefixIcon="stack"
                                     href={`#stack`}
                                     selected={visibleSections.includes('stack')}>
                                     <Flex paddingX="2" hide="s">{'Stack'}</Flex>
@@ -157,18 +157,10 @@ export const Header = () => {
                             )}
                             {(
                                 <ToggleButton
-                                    prefixIcon="grid"
+                                    prefixIcon="experience"
                                     href={`#experience`}
                                     selected={visibleSections.includes('experience')}>
                                     <Flex paddingX="2" hide="s">Experience</Flex>
-                                </ToggleButton>
-                            )}
-                            {(
-                                <ToggleButton
-                                    prefixIcon="book"
-                                    href={`#certificates`}
-                                    selected={visibleSections.includes('certificates')}>
-                                    <Flex paddingX="2" hide="s">Certificates</Flex>
                                 </ToggleButton>
                             )}
                             {(

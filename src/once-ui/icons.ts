@@ -38,9 +38,11 @@ import {
 	FaNodeJs,
 	FaReact,
 	FaSchool,
+	FaSuitcase,
+	FaToolbox,
 	FaXTwitter
 } from "react-icons/fa6";
-import { projects } from '@/app/resources/content';
+import { experiences, projects } from '@/app/resources/content';
 
 export const iconLibrary: Record<string, IconType> = {
 	chevronUp: HiChevronUp,
@@ -75,4 +77,6 @@ export const iconLibrary: Record<string, IconType> = {
 	nodejs: FaNodeJs,
 	project: FaComputer,
 	school: FaSchool,
+	stack: FaToolbox,
+	experience: FaSuitcase
 };
