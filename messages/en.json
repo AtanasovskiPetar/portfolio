@@ -74,8 +74,5 @@
         "label": "Gallery",
         "title": "My photo gallery",
         "description": "A photo collection by {name}"
-    },
-    "projectCard": {
-        "label": "Read Case Study"
     }
 }

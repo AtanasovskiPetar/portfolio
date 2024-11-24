@@ -74,8 +74,5 @@
         "label": "Galeri",
         "title": "Galeri Foto Saya",
         "description": "Koleksi foto oleh {name}"
-    },
-    "projectCard": {
-        "label": "Baca Studi Kasus"
     }
 }
