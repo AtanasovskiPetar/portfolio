@@ -254,7 +254,7 @@ export default function Home(
 					</RevealFx>
 					<RevealFx translateY="16" delay={0.6}>
 						<Grid
-							columns="repeat(4, 1fr)"
+							columns="repeat(5, 1fr)"
 							mobileColumns='2col'
 							style={{ padding: '16px' }}
 						>
