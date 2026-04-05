@@ -73,7 +73,7 @@ export const Header = () => {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            const sections = ['home-id', 'stack', 'experience', 'projects', 'education'];
+            const sections = ['home-id', 'stack', 'experience', 'education', 'research', 'projects'];
             const visibleSet = new Set();
             const observer = new IntersectionObserver(
                 (entries) => {
@@ -138,7 +138,8 @@ export const Header = () => {
                         justifyContent="center">
                         <Flex
                             gap="4"
-                            textVariant="body-default-s">
+                            textVariant="body-default-s"
+                            className={styles.navItems}>
                             {(
                                 <ToggleButton
                                     prefixIcon="home"
@@ -169,6 +170,14 @@ export const Header = () => {
                                     href={`#education`}
                                     selected={visibleSections.includes('education')}>
                                     <Flex paddingX="2" hide="s">Education</Flex>
+                                </ToggleButton>
+                            )}
+                            {(
+                                <ToggleButton
+                                    prefixIcon="research"
+                                    href={`#research`}
+                                    selected={visibleSections.includes('research')}>
+                                    <Flex paddingX="2" hide="s">Research</Flex>
                                 </ToggleButton>
                             )}
                             {(

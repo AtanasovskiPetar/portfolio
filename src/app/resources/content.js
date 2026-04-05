@@ -561,4 +561,23 @@ const gallery = {
     ]
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery, stack, experiences, education, certifications, projects, achievements };
+const research = [
+    {
+        title: 'Evolution of spatial transcriptomics technologies: Analysis of Ståhl et al. & Modern Alternatives',
+        timeframe: 'Mar 2026',
+    },
+    {
+        title: 'Scalability Evaluation of Multi-Tenant SaaS Applications: Comparing CaaS and IaaS Deployments',
+        timeframe: 'Jan 2026',
+    },
+    {
+        title: 'Scalable SaaS Reservation System: A Hybrid Multi-Tenant API and Single-Tenant UI Architecture',
+        timeframe: 'Sept 2025',
+    },
+    {
+        title: 'AI-Enhanced Gameplay: Building a Neural Network-Driven Game Player on Azure',
+        timeframe: 'Aug 2024',
+    },
+]
+
+export { person, social, newsletter, home, about, blog, work, gallery, stack, experiences, education, certifications, projects, achievements, research };

@@ -6,7 +6,7 @@ import { baseURL, renderContent } from '@/app/resources';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import Experience from '@/components/Experience';
-import { education, projects } from '../resources/content';
+import { education, projects, research } from '../resources/content';
 import Education from '@/components/Education';
 import { Project } from '@/components/Project';
 
@@ -243,7 +243,7 @@ export default function Home(
 						</RevealFx>
 					))}
 				</div>
-				<div style={{ width: '100%' }}>
+					<div style={{ width: '100%' }}>
 					<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
 						<Heading
 							as="h2"
@@ -282,6 +282,41 @@ export default function Home(
 					</RevealFx>
 				</div>
 			</Flex>
+			<div id="research" style={{ width: '100%' }}>
+				<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
+					<Heading
+						as="h2"
+						variant="display-strong-xs"
+						wrap="balance">
+						Research
+					</Heading>
+				</RevealFx>
+				<RevealFx translateY="16" delay={0.6}>
+					<Grid
+						columns="repeat(2, 1fr)"
+						mobileColumns='1col'
+						style={{ padding: '16px' }}
+					>
+						{research.map((item) => (
+							<div
+								key={item.title}
+								style={{
+									border: '1px solid #fff',
+									borderRadius: '8px',
+									margin: '10px',
+									padding: '16px',
+									display: 'flex',
+									flexDirection: 'column',
+									gap: '8px',
+								}}
+							>
+								<h4>{item.title}</h4>
+								<h5>{item.timeframe}</h5>
+							</div>
+						))}
+					</Grid>
+				</RevealFx>
+			</div>
 			<div id="projects" style={{ width: '100%' }}>
 				<RevealFx translateY="16" delay={0.6} style={{ justifyContent: 'left' }}>
 					<Heading

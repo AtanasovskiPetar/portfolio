@@ -78,5 +78,6 @@ export const iconLibrary: Record<string, IconType> = {
 	project: FaComputer,
 	school: FaSchool,
 	stack: FaToolbox,
-	experience: FaSuitcase
+	experience: FaSuitcase,
+	research: PiBookBookmarkDuotone
 };
