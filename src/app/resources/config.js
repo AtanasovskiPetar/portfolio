@@ -10,18 +10,10 @@ const i18nOptions = {
 }
 
 const routes = {
-    '/':        true,
-    '/about':   true,
-    '/work':    true,
-    '/blog':    true,
-    '/gallery': true,
+    '/': true,
 }
 
-// Enable password protection on selected routes
-// Set password in pages/api/authenticate.ts
-const protectedRoutes = {
-    '/work/automate-design-handovers-with-a-figma-to-code-pipeline': true
-}
+const protectedRoutes = {}
 
 const effects = {
     mask: 'cursor',             // none | cursor | topLeft | topRight | bottomLeft | bottomRight

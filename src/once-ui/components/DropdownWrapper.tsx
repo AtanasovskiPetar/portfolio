@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, ReactNode, forwardRef, useImperativeHandle } from 'react';
 import { useFloating, shift, offset, flip, size, autoUpdate } from '@floating-ui/react-dom';
 import { Flex, Dropdown, DropdownProps, DropdownOptions } from '.';
-import styles from './Select.module.scss';
+import styles from './DropdownWrapper.module.scss';
 import classNames from 'classnames';
 
 interface DropdownWrapperProps {
