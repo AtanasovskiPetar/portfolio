@@ -5,7 +5,7 @@ interface ExperienceProps {
     position: string;
     company: string;
     title: string;
-    description: string;
+    description: string | string[];
     timeframe: string;
     className?: string;
     style?: React.CSSProperties;
@@ -13,20 +13,26 @@ interface ExperienceProps {
 
 const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({position, company, title, description, timeframe, className, style, ...props}, ref) => {
 
-    const timeContent = (
-        <>
-            <h5>{timeframe}</h5>
-        </>
-    );
-
-    const experienceContent = (
-        <>
+    const metaContent = (
         <div style={{textAlign: position === 'left' ? 'right' : 'left'}}>
             <h3>{company}</h3>
             <h5 style={{paddingBottom: '10px'}}>{title}</h5>
-            <h5>{description}</h5>
+            <h5>{timeframe}</h5>
         </div>
-        </>
+    );
+
+    const descriptionContent = (
+        <div style={{textAlign: position === 'left' ? 'left' : 'right'}}>
+            {Array.isArray(description) ? (
+                <ul style={{margin: 0, paddingLeft: position === 'left' ? '1.2em' : 0, paddingRight: position === 'right' ? '1.2em' : 0, listStyle: 'disc'}}>
+                    {description.map((item, i) => (
+                        <li key={i}><h5 style={{display: 'inline'}}>{item}</h5></li>
+                    ))}
+                </ul>
+            ) : (
+                <h5>{description}</h5>
+            )}
+        </div>
     );
 
     return (
@@ -44,7 +50,7 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({position, compa
                     alignItems: 'center',
                 }}
             >
-                {position === 'left' ? experienceContent : timeContent}
+                {position === 'left' ? metaContent : descriptionContent}
             </div>
             <div style={{
                 padding: '16px',
@@ -52,7 +58,7 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({position, compa
                 justifyContent: 'flex-start',
                 alignItems: 'center'
                 }}>
-                {position === 'left' ? timeContent : experienceContent}
+                {position === 'left' ? descriptionContent : metaContent}
             </div>
         </Grid>
     );

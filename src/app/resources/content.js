@@ -150,21 +150,32 @@ const experiences = [
         title: 'Software Engineer',
         company: 'CodeChem',
         timeframe: 'Dec 2024 - Present',
-        description: 'Software engineer at CodeChem, a company that builds tools for developers. I work on the front-end and back-end of our products.',
+        description: [
+            'Modernized legacy infrastructure by migrating monolithic backends to scalable, serverless microservices.',
+            'Hardened enterprise security by re-engineering authorization layers and implementing a secure API Key management system.',
+            'Consolidated data architecture by merging NoSQL, SQL, and Graph databases into a centralized, optimized SQL system.',
+            'Designed technical tasks for the company\'s "Open Day" to identify high-potential engineering interns.',
+        ],
         position: 'left'
     },
     {
         title: 'Junior FullStack Developer',
         company: 'Semos Cloud',
         timeframe: 'Feb 2024 - Dec 2024',
-        description: 'Internship and first developer job, where I contributed to the development of JobPts, a SaaS cloud-based recognition software.',
+        description: [
+            'Migrated enterprise-scale data from SAP HANA to MSSQL while maintaining zero downtime and full data integrity.',
+            'Optimized large-scale data processing by architecting an engine to generate complex Excel reports from massive datasets efficiently.',
+            'Provided rapid-response technical solutions, collaborating with Sales and Support to resolve urgent client requirements.',
+        ],
         position: 'right'
     },
     {
         title: 'Data Curator',
         company: 'Veeva Systems',
         timeframe: 'Jul 2022 - Jul 2024',
-        description: 'Freelancer in a Public Benefit corporation called Veeva. It was a side job that I did while I took my studies as my primary occupation.',
+        description: [
+            'Managed high-accuracy data curation for a global life sciences leader while completing full-time academic studies.',
+        ],
         position: 'left'
     },
     {
