@@ -1,11 +1,8 @@
 import { InlineCode } from "@/once-ui/components";
-
 const person = {
     firstName: 'Petar',
     lastName:  'Atanasovski',
-    get name() {
-        return `${this.firstName} ${this.lastName}`;
-    },
+    name:      'Petar Atanasovski',
     role:      'Design Engineer',
     avatar:    '/images/avatar.jpg',
     location:  'Europe/Vienna',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
