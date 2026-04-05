@@ -24,11 +24,11 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({position, compa
     const descriptionContent = (
         <div style={{textAlign: position === 'left' ? 'left' : 'right'}}>
             {Array.isArray(description) ? (
-                <ul style={{margin: 0, paddingLeft: position === 'left' ? '1.2em' : 0, paddingRight: position === 'right' ? '1.2em' : 0, listStyle: 'disc'}}>
+                <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
                     {description.map((item, i) => (
-                        <li key={i}><h5 style={{display: 'inline'}}>{item}</h5></li>
+                        <h5 key={i} style={{margin: 0}}>{item}</h5>
                     ))}
-                </ul>
+                </div>
             ) : (
                 <h5>{description}</h5>
             )}

@@ -194,7 +194,7 @@ export default function Home(
 							as="h2"
 							variant="display-strong-xs"
 							wrap="balance">
-							Certificates
+							Honors & Certifications
 						</Heading>
 					</RevealFx>
 					<RevealFx translateY="16" delay={0.6}>
@@ -231,13 +231,13 @@ export default function Home(
 						</Heading>
 					</RevealFx>
 					{education.map((item) => (
-						<RevealFx key={item.institution} translateY="16" delay={0.6}>
+						<RevealFx key={`${item.institution}-${item.degree}`} translateY="16" delay={0.6}>
 							<Education
 								institution={item.institution}
 								degree={item.degree}
 								direction={item.direction}
-								gpa={item.gpa}
 								timeframe={item.timeframe}
+								description={item.description}
 								position={item.position}
 							></Education>
 						</RevealFx>

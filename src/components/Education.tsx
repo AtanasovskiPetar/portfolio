@@ -6,29 +6,27 @@ interface EducationProps {
     institution: string;
     degree: string;
     direction: string;
-    gpa: string;
     timeframe: string;
+    description: string;
     className?: string;
     style?: React.CSSProperties;
 }
 
-const Education = forwardRef<HTMLDivElement, EducationProps>(({position, institution, degree, direction, gpa, timeframe, className, style, ...props}, ref) => {
+const Education = forwardRef<HTMLDivElement, EducationProps>(({position, institution, degree, direction, timeframe, description, className, style, ...props}, ref) => {
 
-    const timeContent = (
-        <>
-            <h5>{timeframe}</h5>
-        </>
-    );
-
-    const educationContent = (
-        <>
+    const metaContent = (
         <div style={{textAlign: position === 'left' ? 'right' : 'left'}}>
             <h3>{institution}</h3>
-            <h4 style={{paddingBottom: '10px'}}>{degree}</h4>
-            <h5>{direction}</h5>
-            <h5>GPA: {gpa}</h5>
+            <h5 style={{paddingBottom: '4px'}}>{degree}</h5>
+            <h5 style={{paddingBottom: '4px'}}>{direction}</h5>
+            <h5>{timeframe}</h5>
         </div>
-        </>
+    );
+
+    const descriptionContent = (
+        <div style={{textAlign: position === 'left' ? 'left' : 'right'}}>
+            <h5 style={{margin: 0}}>{description}</h5>
+        </div>
     );
 
     return (
@@ -46,7 +44,7 @@ const Education = forwardRef<HTMLDivElement, EducationProps>(({position, institu
                     alignItems: 'center',
                 }}
             >
-                {position === 'left' ? educationContent : timeContent}
+                {position === 'left' ? metaContent : descriptionContent}
             </div>
             <div style={{
                 padding: '16px',
@@ -54,7 +52,7 @@ const Education = forwardRef<HTMLDivElement, EducationProps>(({position, institu
                 justifyContent: 'flex-start',
                 alignItems: 'center'
                 }}>
-                {position === 'left' ? timeContent : educationContent}
+                {position === 'left' ? descriptionContent : metaContent}
             </div>
         </Grid>
     );

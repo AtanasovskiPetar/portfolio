@@ -182,7 +182,7 @@ const experiences = [
         title: 'Web Designer',
         company: 'Freelance',
         timeframe: 'Jan 2021 - Jun 2023',
-        description: 'freelanced as a web developer, crafting online stores for small businesses using WordPress and Shopify.',
+        description: 'Freelanced as a web developer, crafting online stores for small businesses using WordPress and Shopify.',
         position: 'right'
     }
 ]
@@ -190,23 +190,36 @@ const experiences = [
 const education = [
     {
         institution: 'FINKI - Skopje',
+        degree: 'Master of Science',
+        direction: 'Bioinformatics',
+        timeframe: 'Oct 2025 - Present',
+        description: 'Research Focus: Spatial Transcriptomics and Proteomics.',
+        position: 'left'
+    },
+    {
+        institution: 'FINKI - Skopje',
         degree: 'Bachelor of Computer Science',
         direction: 'Computer Science',
-        gpa: '9.33/10.00',
-        timeframe: 'Oct 2021 - Jun 2024',
-        position: 'left'
+        timeframe: 'Oct 2021 - Sept 2025',
+        description: 'GPA: 9.36/10.00 | Specialized in Software Engineering and Cloud Infrastructure.',
+        position: 'right'
     },
     {
         institution: 'Josip Broz Tito - Bitola',
         degree: 'High School',
-        direction: 'Matheamtics and Natural Science',
-        gpa: '5.00/5.00',
-        timeframe: 'Sep 2017 - Jun 2021',
-        position: 'right'
+        direction: 'Mathematics and Natural Science',
+        timeframe: 'Sept 2017 - Jun 2021',
+        description: 'GPA: 5.00/5.00 | Specialized in mathematics and science and engaged in various projects locally and internationally.',
+        position: 'left'
     },
 ]
 
 const certifications = [
+    {
+        title: 'Technical Speaker @ BeerJS',
+        institution: 'Bun: JS is Moving Beyond Node',
+        timeframe: 'Feb 2026',
+    },
     {
         title: 'Advanced Querying With T-SQL',
         institution: 'Semos Education',
@@ -216,11 +229,6 @@ const certifications = [
         title: 'C1 English Language Certificate',
         institution: 'Big Ben',
         timeframe: 'Jul 2021',
-    },
-    {
-        title: 'More to come...',
-        institution: '',
-        timeframe: '',
     },
 ]
 
@@ -254,35 +262,49 @@ const achievements = [
 
 const projects = [
     {
-        title: 'Drug-Target Interactions Prediction App',
-        description: 'A machine learning-based tool for predicting drug-protein interactions and IC50 values.',
+        title: 'Schedly | SaaS',
+        description: 'Architected and deployed a scalable reservation engine with a hybrid multi-tenant API and single-tenant UI.',
+        src: '/images/projects/schedly.jpg',
+        link: 'https://hub.dev.schedly.cc/',
+        color: 'black',
+    },
+    {
+        title: 'EMSA Macedonia | Enterprise',
+        description: 'Developed a centralized platform for member and project management for a medical students’ association.',
+        src: '/images/projects/emsa.jpg',
+        link: 'https://github.com/AtanasovskiPetar/emsa',
+        color: 'black',
+    },
+    {
+        title: 'Drug-Target Interactions | Bioinformatics ML',
+        description: 'Built a predictive machine learning model for IC50 values with a functional UI interface.',
         src: '/images/projects/dti-app.jpg',
         link: 'https://github.com/AtanasovskiPetar/dti-app',
         color: 'black',
     },
     {
-        title: 'Overboiled',
-        description: 'Global Game Jam 2025 award-winning mobile game',
+        title: 'Overboiled | Unity',
+        description: 'Global Game Jam 2025 award-winning mobile game.',
         src: '/images/projects/overboiled.jpg',
         link: 'https://github.com/AtanasovskiPetar/Overboiled',
         color: 'white',
     },
     {
-        title: 'XLSX Streaming Writer',
-        description: 'Node.js package for streaming data into Excel file',
+        title: 'Xlsx Streaming Writer | Open Source Node.js',
+        description: 'High-performance package for streaming large datasets directly into Excel.',
         src: '/images/projects/xlsx_streaming_writer.jpg',
         link: 'https://github.com/AtanasovskiPetar/xlsx-streaming-writer',
         color: 'black',
     },
     {
-        title: 'AI Football',
-        description: 'Cloud-trained custom open ai gymnasium environment for a 3v3 python football game.',
+        title: 'AI Football | Machine Learning',
+        description: 'Neural network trained on Azure Cloud that plays football in Pygame.',
         src: '/images/projects/ai_football.jpg',
         link: 'https://github.com/AtanasovskiPetar/AIFootball',
         color: 'black',
     },
     {
-        title: 'Bloodline',
+        title: 'Bloodline | Unity',
         description: 'An engaging 3D strategy game developed in the Unity game engine.',
         src: '/images/projects/bloodline.jpg',
         link: 'https://github.com/AtanasovskiPetar/Bloodline',
