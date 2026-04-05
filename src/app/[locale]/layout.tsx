@@ -11,16 +11,16 @@ import { Inter } from 'next/font/google'
 import { Button, Arrow } from '@/once-ui/components';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
 import { Background, Flex } from "@/once-ui/components";
 
 export async function generateMetadata(
-	{ params: { locale }}: { params: { locale: string }}
+	{ params }: { params: Promise<{ locale: string }> }
 ) {
-
+	const { locale } = await params;
 	const t = await getTranslations();
 	const { person, home } = renderContent(t);
 
@@ -77,18 +77,19 @@ const code = 	({
 
 interface RootLayoutProps {
 	children: React.ReactNode;
-	params: {locale: string};
+	params: Promise<{locale: string}>;
 }
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({locale}));
-  }
+}
 
 export default async function RootLayout({
 	children,
-	params: {locale}
+	params,
 } : RootLayoutProps) {
-	unstable_setRequestLocale(locale);
+	const { locale } = await params;
+	setRequestLocale(locale);
 	const messages = await getMessages();
 	return (
 		<NextIntlClientProvider messages={messages}>

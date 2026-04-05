@@ -3,7 +3,7 @@ import React from 'react';
 import { Heading, Flex, Text, Avatar, RevealFx, IconButton, StackIcon, Grid } from '@/once-ui/components';
 
 import { baseURL, renderContent } from '@/app/resources';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import Experience from '@/components/Experience';
 import { education, projects } from '../resources/content';
@@ -11,8 +11,9 @@ import Education from '@/components/Education';
 import { Project } from '@/components/Project';
 
 export async function generateMetadata(
-	{ params: { locale } }: { params: { locale: string } }
+	{ params }: { params: Promise<{ locale: string }> }
 ) {
+	const { locale } = await params;
 	const t = await getTranslations();
 	const { home } = renderContent(t);
 	const title = home.title;
@@ -44,9 +45,10 @@ export async function generateMetadata(
 }
 
 export default function Home(
-	{ params: { locale } }: { params: { locale: string } }
+	{ params }: { params: Promise<{ locale: string }> }
 ) {
-	unstable_setRequestLocale(locale);
+	const { locale } = React.use(params);
+	setRequestLocale(locale);
 	const t = useTranslations();
 	const { home, person, social, stack, experiences, certifications, achievements } = renderContent(t);
 	return (
@@ -172,9 +174,8 @@ export default function Home(
 					</Heading>
 				</RevealFx>
 				{experiences.map((item) => (
-					<RevealFx translateY="16" delay={0.6}>
+					<RevealFx key={item.title} translateY="16" delay={0.6}>
 						<Experience
-							key={item.title}
 							title={item.title}
 							company={item.company}
 							position={item.position}
@@ -230,9 +231,8 @@ export default function Home(
 						</Heading>
 					</RevealFx>
 					{education.map((item) => (
-						<RevealFx translateY="16" delay={0.6}>
+						<RevealFx key={item.institution} translateY="16" delay={0.6}>
 							<Education
-								key={item.institution}
 								institution={item.institution}
 								degree={item.degree}
 								direction={item.direction}
