@@ -45,7 +45,7 @@ const home = {
     title: `${person.name}`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
     headline: <>Software Engineer</>,
-    subline: <>I'm Petar Atanasovski, computer science student and sofware engineer at <InlineCode>CodeChem</InlineCode>.</>
+    subline: <>I'm Petar Atanasovski, software engineer at <InlineCode>CodeChem</InlineCode> and bioinformatics master's student.</>
 }
 
 const stack = [
